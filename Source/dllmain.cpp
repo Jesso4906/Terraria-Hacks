@@ -3,9 +3,7 @@
 
 #include <iostream>
 #include <TlHelp32.h>
-//#include <math.h> math functions
 #include "memoryTools.h"
-#include "vectorStructs.h"
 
 //https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes windows key codes
 
@@ -67,7 +65,7 @@ DWORD WINAPI Thread(LPVOID param)
 	std::cout << "K - Change Current Item ID (-1)\n";
 	std::cout << "P - Change Current Item ID (+100)\n";
 	std::cout << "O - Change Current Item ID (-100)\n";
-	std::cout << "ins - Unload DLL\n\n";
+	std::cout << "F1 - Unload DLL\n\n";
 	std::cout << "X: 0\nY: 0\nItem ID: 65";
 	std::cout << "\n\nCreated by Ass Monke#4906\n";
 
@@ -94,7 +92,7 @@ DWORD WINAPI Thread(LPVOID param)
 	bool infMana = false;
 	float x=0, y=0;
 	
-	while (!GetAsyncKeyState(0x2D)) // exit when ins key is pressed
+	while (!GetAsyncKeyState(0x70)) // F1
 	{
 		UpdateConsole(noClip, infHealth, infMana, x, y);
 
