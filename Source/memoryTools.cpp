@@ -51,9 +51,7 @@ DWORD FindArrayOfBytes(DWORD baseAddress, BYTE* bytes, int totalBytes)
 		if (mbi.State == MEM_COMMIT && mbi.Protect == PAGE_EXECUTE_READWRITE)
 		{
 			unsigned char* buffer = (unsigned char*)mbi.BaseAddress;
-
-			//ReadProcessMemory(currentProcess, mbi.BaseAddress, buffer, mbi.RegionSize, 0);
-
+		
 			for (int i = 0; i < mbi.RegionSize; i++)
 			{
 				if (*(buffer+i) == bytes[currentByte])
@@ -71,8 +69,6 @@ DWORD FindArrayOfBytes(DWORD baseAddress, BYTE* bytes, int totalBytes)
 
 				currentByte++;
 			}
-
-			//delete[] buffer;
 		}
 
 		baseAddress += mbi.RegionSize;
